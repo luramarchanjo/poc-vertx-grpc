@@ -13,9 +13,9 @@ import java.util.UUID;
 public class MainVerticle extends AbstractVerticle {
 
   public static void main(String[] args) {
-    Vertx vertx = Vertx.vertx(new VertxOptions().setPreferNativeTransport(true).setWorkerPoolSize(50));
+    Vertx vertx = Vertx.vertx(new VertxOptions().setPreferNativeTransport(true).setWorkerPoolSize(200));
     vertx.deployVerticle(MainVerticle.class.getName());
-    vertx.deployVerticle(Worker.class.getName(), new DeploymentOptions().setWorker(true).setInstances(50));
+    vertx.deployVerticle(Worker.class.getName(), new DeploymentOptions().setWorker(true).setInstances(200));
   }
 
   @Override
