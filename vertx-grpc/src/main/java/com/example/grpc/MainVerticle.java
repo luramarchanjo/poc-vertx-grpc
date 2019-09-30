@@ -14,7 +14,8 @@ public class MainVerticle extends AbstractVerticle {
 
   public static void main(String[] args) {
     Vertx vertx = Vertx.vertx(new VertxOptions().setPreferNativeTransport(true).setWorkerPoolSize(200));
-    vertx.deployVerticle(MainVerticle.class.getName());
+    vertx.deployVerticle(MainVerticle.class.getName()); // gPRC Event Loop
+    vertx.deployVerticle(MainVerticle.class.getName()); // gPRC Event Loop
     vertx.deployVerticle(Worker.class.getName(), new DeploymentOptions().setWorker(true).setInstances(200));
   }
 
